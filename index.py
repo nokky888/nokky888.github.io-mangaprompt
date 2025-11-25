@@ -3,8 +3,9 @@ import streamlit as st
 # ページ設定
 st.set_page_config(page_title="Manga Prompt Generator", layout="wide")
 
-st.title("漫画プロンプト作成ツール (改善版)")
-st.markdown("PyYAMLを使わず、標準機能のみで安全にYAMLプロンプトを生成します。")
+st.title("漫画プロンプト作成ツールVer.1")
+st.markdown("nanobananaの漫画プロンプトYamlで見るの大変だなと思ったからフォーム化してみたよ。")
+st.markdown("Python勉強中だから使いづらいのは許しておくれ…。")
 
 # --- セッション状態の初期化 ---
 if "character_infos" not in st.session_state:
@@ -153,10 +154,11 @@ tab1, tab2, tab3 = st.tabs(["① キャラクター登録", "② パネル(コ�
 
 # === タブ1: キャラクター登録 ===
 with tab1:
-    st.header("登場キャラクターの定義")
+    st.header("登場キャラクターの登録")
     with st.form("add_char_form", clear_on_submit=True):
-        c_name = st.text_input("キャラクター名 (name)", placeholder="例: るー")
-        c_prompt = st.text_area("外見プロンプト (base_prompt)", placeholder="例: 1girl, solo, she is 5 years old...")
+        c_name = st.text_input("キャラクター名 (name)", placeholder="例: aichan")
+        st.markdown("※登場させるキャラクターの画像を参照させる場合、画像の名前とこのキャラ名を一致させるとよきです。")
+        c_prompt = st.text_area("外見プロンプト (base_prompt)", placeholder="例: 1girl, solo, she has gold long hair, ...")
         submitted = st.form_submit_button("キャラクターを追加")
         if submitted and c_name:
             st.session_state.character_infos.append({
@@ -187,13 +189,13 @@ with tab2:
         st.subheader("1. コマの基本設定")
         col_p1, col_p2 = st.columns(2)
         with col_p1:
-            p_pos = st.selectbox("ページ内の位置", ["top", "middle", "bottom", "top-right", "top-left", "bottom-right", "bottom-left"], key="new_p_pos")
+            p_pos = st.selectbox("ページ内でのコマの位置", ["top", "middle", "bottom", "top-right", "top-left", "bottom-right", "bottom-left"], key="new_p_pos")
             p_bg = st.text_area("背景", placeholder="例: 暗い部屋に煌々と光るPCの画面", key="new_p_bg")
         with col_p2:
             p_cam = st.text_input("カメラアングル", placeholder="例: from side, front", key="new_p_cam")
-            p_desc = st.text_input("状況説明", placeholder="例: ナノバナナProが世間を賑わしている", key="new_p_desc")
+            p_desc = st.text_input("コマが表してる状況を書いておく", placeholder="例: ナノバナナProが世間を賑わしている", key="new_p_desc")
         
-        p_obj_str = st.text_input("配置オブジェクト (カンマ区切り)", placeholder="例: マグカップ, スマホ", key="new_p_obj")
+        p_obj_str = st.text_input("登場させたいモノ (カンマ区切り)", placeholder="例: モニター, スマホ, ベッド", key="new_p_obj")
 
         st.markdown("---")
         
