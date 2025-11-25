@@ -3,8 +3,8 @@ import streamlit as st
 # ページ設定
 st.set_page_config(page_title="Manga Prompt Generator", layout="wide")
 
-st.title("nanobananaでAI漫画作るときのプロンプト作りを補助するツール (標準ライブラリ版)")
-st.markdown("nanobananaで漫画を生成するときのプロンプトを入れるツールをPythonで作ってみた。Python初心者だから細かいところはご愛敬です")
+st.title("AI漫画プロンプト作成補助ツールVer.1")
+st.markdown("nanobananaで漫画を生成するときのプロンプトを作るツールをPythonで作ってみたよ。Python初心者だから細かいところはご愛敬だよ。")
 
 # --- セッション状態の初期化 ---
 if "character_infos" not in st.session_state:
@@ -153,8 +153,8 @@ tab1, tab2, tab3 = st.tabs(["① キャラクター登録", "② パネル(コ�
 
 # === タブ1: キャラクター登録 ===
 with tab1:
-    st.header("登場キャラクターを登録しよう")
-    st.markdown("登場させたいキャラクターの情報を入力してね。")
+    st.header("キャラクターの登録")
+    st.markdown("登場させたいキャラクターの情報を1体ずつ入力してね。")
     with st.form("add_char_form", clear_on_submit=True):
         c_name = st.text_input("キャラクター名 (name)", placeholder="例: aichan ")
         st.markdown("※生成するときAIにキャラの画像を渡す場合、その画像と名前をそろえておくと同じキャラとして認識してくれるよ")
@@ -188,13 +188,13 @@ with tab2:
         
         col_p1, col_p2 = st.columns(2)
         with col_p1:
-            p_pos = st.selectbox("ページ内の位置", ["top", "middle", "bottom", "top-right", "top-left", "bottom-right", "bottom-left"], key="new_p_pos")
-            p_bg = st.text_area("背景", placeholder="例: 暗い部屋に煌々と光るPCの画面", key="new_p_bg")
+            p_pos = st.selectbox("ページ内でのコマの位置", ["top", "middle", "bottom", "top-right", "top-left", "bottom-right", "bottom-left"], key="new_p_pos")
+            p_bg = st.text_area("背景", placeholder="例: 暗い部屋", key="new_p_bg")
         with col_p2:
             p_cam = st.text_input("カメラアングル", placeholder="例: from side, front", key="new_p_cam")
-            p_desc = st.text_input("状況説明", placeholder="例: ナノバナナProが世間を賑わしている", key="new_p_desc")
+            p_desc = st.text_input("状況説明", placeholder="例: 部屋に重たい空気が流れている", key="new_p_desc")
         
-        p_obj_str = st.text_input("配置オブジェクト (カンマ区切り)", placeholder="例: マグカップ, スマホ", key="new_p_obj")
+        p_obj_str = st.text_input("コマの中に入れたいモノ (カンマ区切り)", placeholder="例: マグカップ, スマホ, PC", key="new_p_obj")
 
         st.markdown("---")
         st.markdown("**このコマに登場するキャラクター**")
