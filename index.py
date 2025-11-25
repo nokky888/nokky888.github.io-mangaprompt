@@ -283,7 +283,7 @@ with tab2:
         
         # --- モノローグ ---
         st.subheader("3. その他 (モノローグ)")
-        p_mono = st.text_input("モノローグ内容", placeholder="例: 早すぎて追いつかない", key="new_p_mono")
+        p_mono = st.text_input("モノローグ内容", placeholder="例: 彼女の旅は続くのであった", key="new_p_mono")
         
         # --- 決定ボタン ---
         if st.button("この内容でコマを確定・追加", type="primary"):
