@@ -14,7 +14,7 @@ if "panels" not in st.session_state:
     st.session_state.panels = []
 
 # --- サイドバー：基礎設定 ---
-st.sidebar.header("1. 基礎設定")
+st.sidebar.header("★基礎設定")
 
 # 言語設定
 lang_input = st.sidebar.radio(
