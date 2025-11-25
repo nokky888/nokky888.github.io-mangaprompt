@@ -3,8 +3,8 @@ import streamlit as st
 # ページ設定
 st.set_page_config(page_title="Manga Prompt Generator", layout="wide")
 
-st.title("漫画プロンプト作成ツール (標準ライブラリ版)")
-st.markdown("PyYAMLを使わず、標準機能のみで安全にYAMLプロンプトを生成します。")
+st.title("nanobananaでAI漫画作るときのプロンプト作りを補助するツール (標準ライブラリ版)")
+st.markdown("nanobananaで漫画を生成するときのプロンプトを入れるツールをPythonで作ってみた。Python初心者だから細かいところはご愛敬です")
 
 # --- セッション状態の初期化 ---
 if "character_infos" not in st.session_state:
@@ -153,10 +153,12 @@ tab1, tab2, tab3 = st.tabs(["① キャラクター登録", "② パネル(コ�
 
 # === タブ1: キャラクター登録 ===
 with tab1:
-    st.header("登場キャラクターの定義")
+    st.header("登場キャラクターを登録しよう")
+    st.markdown("登場させたいキャラクターの情報を入力してね。")
     with st.form("add_char_form", clear_on_submit=True):
-        c_name = st.text_input("キャラクター名 (name)", placeholder="例: るー")
-        c_prompt = st.text_area("外見プロンプト (base_prompt)", placeholder="例: 1girl, solo, she is 5 years old...")
+        c_name = st.text_input("キャラクター名 (name)", placeholder="例: aichan ")
+        st.markdown("※生成するときAIにキャラの画像を渡す場合、その画像と名前をそろえておくと同じキャラとして認識してくれるよ")
+        c_prompt = st.text_area("外見プロンプト (base_prompt)", placeholder="例: 1girl, solo, she has long blue hair,...")
         submitted = st.form_submit_button("キャラクターを追加")
         if submitted and c_name:
             st.session_state.character_infos.append({
