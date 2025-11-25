@@ -3,11 +3,11 @@ import streamlit as st
 # ページ設定
 st.set_page_config(page_title="Manga Prompt Generator", layout="wide")
 
-st.title("漫画プロンプト作成補助ツールVer.1")
-st.markdown("nanobananaの漫画プロンプトをYamlで作るとき、コードが長くて一つ一つ目で見ていくのが大変だったからフォーム化してみたよ。")
+st.title("漫画用のyamlプロンプト作成補助ツールVer.1")
+st.markdown("nanobananaの漫画プロンプトをyamlで作るとき、コードが長くて一つ一つ目で見ていくのが大変だったからフォーム化してみたよ。")
 st.markdown("Pythonの勉強はじめたばかりだから細かい部分は大目に見てね。")
-st.markdown("使い方")
-st.markdown("　画面左の★基礎設定で希望のものを選択→①キャラクター登録→② パネル(コマ)作成→③ プロンプト生成　の順で入力")
+st.markdown("＜使い方＞")
+st.markdown("画面左の★基礎設定で希望のものを選択→①キャラクター登録→② パネル(コマ)作成→③ プロンプト生成　の順で入力")
 # --- セッション状態の初期化 ---
 if "character_infos" not in st.session_state:
     st.session_state.character_infos = []
