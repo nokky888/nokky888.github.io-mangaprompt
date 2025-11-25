@@ -229,7 +229,7 @@ with tab2:
             with col_v2:
                 tp_shot = st.selectbox("ショット", ["バストアップ", "顔のアップ", "全身", "ニーアップ"], key="tp_shot")
             with col_v3:
-                tp_face = st.text_input("表情/向き", placeholder="PCを見ている", key="tp_face")
+                tp_face = st.text_input("表情/向き", placeholder="泣きながらモニターを見つめている", key="tp_face")
 
             # --- 追加ボタンエリア ---
             # 【改善点②】追加ボタンを2つに分離
